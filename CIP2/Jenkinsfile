@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                dir (‘maven-adderapp’) {
+                dir ("maven-adderapp") {
                     sh 'mvn -DskipTests clean package'
                 }
             }
