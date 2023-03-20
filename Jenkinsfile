@@ -8,20 +8,19 @@ pipeline {
         stage('Build') {
             steps {
                 dir ('maven-adderapp') {
-                  sh 'mvn -DskipTests clean package'
+                  shell 'mvn -DskipTests clean package'
                 }
             }
         }
         stage('Test') {
             steps {
                 dir ('maven-adderapp') {
-                    sh "mvn test"
+                    shell "mvn test"
                 }
             }
         }
         stage('Deploy') {
             steps {
-
                 echo 'Deploying....'
             }
         }
