@@ -29,7 +29,7 @@ pipeline {
                         env.file = files[0].path;
                     }
                 }
-                shell "cp maven-adderapp/$file server/holamundo.jar"
+                shell "copy maven-adderapp/$file holamundo.jar"
             }
         }
     }
