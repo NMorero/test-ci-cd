@@ -22,6 +22,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                dir('maven-adderapp') {
+                    script{
+                        pom = readMavenPom file: "pom.xml";
+                        files = findFiles(glob: "target/*.${pom.packaging}");
+                        env.file = files[0].path;
+                    }
+                }
+                shell "cp maven-adderapp/$file server/holamundo.jar"
             }
         }
     }
